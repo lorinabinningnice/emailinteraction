@@ -1,0 +1,69 @@
+@import '../../lyra-ui/src/styles/lyra-tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  color: var(--lyra-color-fg-default);
+  background: var(--lyra-color-bg-surface-shell);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c1c7cd; border-radius: 3px; }
+
+/* ── email-body ──────────────────────────────────────────────────────────────
+   Applied to both rendered email thread messages and the contentEditable
+   compose area so HTML email content (lists, headings, links, etc.) displays
+   with correct browser defaults rather than Tailwind's CSS reset. */
+.email-body { line-height: 1.6; }
+.email-body p  { margin-bottom: 0.5rem; }
+.email-body p:last-child { margin-bottom: 0; }
+.email-body h1 { font-size: 1.5rem;  font-weight: 700; margin: 0.75rem 0 0.5rem; line-height: 1.3; }
+.email-body h2 { font-size: 1.25rem; font-weight: 600; margin: 0.75rem 0 0.5rem; line-height: 1.3; }
+.email-body h3 { font-size: 1.1rem;  font-weight: 600; margin: 0.5rem 0 0.375rem; }
+.email-body ul { list-style: disc;    padding-left: 1.5rem; margin: 0.4rem 0; }
+.email-body ol { list-style: decimal; padding-left: 1.5rem; margin: 0.4rem 0; }
+.email-body li { margin: 0.25rem 0; }
+.email-body ul ul, .email-body ol ol, .email-body ul ol, .email-body ol ul { margin: 0.15rem 0; }
+.email-body strong, .email-body b { font-weight: 600; }
+.email-body em,     .email-body i { font-style: italic; }
+.email-body u  { text-decoration: underline; }
+.email-body s, .email-body strike, .email-body del { text-decoration: line-through; }
+.email-body a  { color: var(--lyra-color-fg-link, #2563eb); text-decoration: underline; }
+.email-body blockquote {
+  border-left: 3px solid var(--lyra-color-border-subtle, #e2e8f0);
+  padding: 4px 0 4px 12px;
+  margin: 8px 0;
+  color: var(--lyra-color-fg-secondary, #64748b);
+}
+.email-body pre, .email-body code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85em;
+  background: var(--lyra-color-bg-surface-shell, #f8f9fb);
+  padding: 0.15em 0.35em;
+  border-radius: 3px;
+}
+.email-body pre { padding: 0.75rem 1rem; overflow-x: auto; }
+.email-body table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }
+.email-body td, .email-body th {
+  border: 1px solid var(--lyra-color-border-subtle, #e2e8f0);
+  padding: 6px 10px;
+  text-align: left;
+}
+.email-body th { font-weight: 600; background: var(--lyra-color-bg-surface-shell, #f8f9fb); }
+.email-body hr { border: none; border-top: 1px solid var(--lyra-color-border-subtle, #e2e8f0); margin: 0.75rem 0; }
+/* Indent steps from execCommand */
+.email-body [style*="margin-left"] { padding-left: 0; }
+/* Compose area specifics */
+.email-compose { min-height: 96px; outline: none; word-break: break-word; }
