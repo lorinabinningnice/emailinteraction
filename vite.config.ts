@@ -3,6 +3,8 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
+  // Set VITE_BASE=/emailinteraction/ when building for GitHub Pages
+  base: process.env.VITE_BASE ?? "/",
   plugins: [react()],
   resolve: {
     alias: {
